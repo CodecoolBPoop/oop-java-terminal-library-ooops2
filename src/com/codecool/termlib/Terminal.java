@@ -89,6 +89,7 @@ public class Terminal {
      * well.
      */
     public void setUnderline() {
+        command(CONTROL_CODE + "4" + STYLE);
     }
 
     /**
@@ -131,6 +132,9 @@ public class Terminal {
 
     public static void main(String[] arg) {
          Terminal terminal = new Terminal();
-         terminal.clearScreen();
+        //  terminal.clearScreen();
+         terminal.setUnderline();
+         System.out.print("Hello world!");
+
      }
 }

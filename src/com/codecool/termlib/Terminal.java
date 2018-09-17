@@ -7,16 +7,19 @@ public class Terminal {
     // HINT: In \033 the '0' means it's an octal number. And 33 in octal equals 0x1B in hexadecimal.
     // Now you have some info to decode that page where the control codes are explained ;)
     private static final String CONTROL_CODE = "\033[";
+
     /**
      * Command for whole screen clearing.
      *
      * Might be partitioned if needed.
      */
     private static final String CLEAR = "2J";
+
     /**
      * Command for moving the cursor.
      */
     private static final String MOVE = "H";
+
     /**
      * Command for printing style settings.
      *
@@ -34,14 +37,15 @@ public class Terminal {
     public void resetStyle() {
         
     }
+
     /**
      * Clear the whole screen.
      *
      * Might reset cursor position.
      */
-
     public void clearScreen() {
-        command(CONTROL_CODE+MOVE+CONTROL_CODE+CLEAR);
+        moveTo(0, 0);
+        command(CONTROL_CODE+CLEAR);
     }
 
     /**
@@ -54,6 +58,7 @@ public class Terminal {
      * @param y Row number.
      */
     public void moveTo(Integer x, Integer y) {
+        command(CONTROL_CODE+"{"+x+"}"+";"+"{"+y+"}"+MOVE);
     }
 
     /**
@@ -124,7 +129,7 @@ public class Terminal {
         System.out.flush(); 
     }
 
-     public static void main(String[] arg) {
+    public static void main(String[] arg) {
          Terminal terminal = new Terminal();
          terminal.clearScreen();
      }

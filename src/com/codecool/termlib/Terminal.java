@@ -32,14 +32,16 @@ public class Terminal {
      * (i.e.: underlined, dim, bright) to the terminal defaults.
      */
     public void resetStyle() {
+        
     }
-
     /**
      * Clear the whole screen.
      *
      * Might reset cursor position.
      */
+
     public void clearScreen() {
+        command(CONTROL_CODE+MOVE+CONTROL_CODE+CLEAR);
     }
 
     /**
@@ -118,5 +120,12 @@ public class Terminal {
      * @param commandString The unique part of a command sequence.
      */
     private void command(String commandString) {
+        System.out.print(commandString);
+        System.out.flush(); 
     }
+
+     public static void main(String[] arg) {
+         Terminal terminal = new Terminal();
+         terminal.clearScreen();
+     }
 }

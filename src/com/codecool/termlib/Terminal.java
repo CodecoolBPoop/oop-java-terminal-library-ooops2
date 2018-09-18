@@ -58,7 +58,7 @@ public class Terminal {
      * @param y Row number.
      */
     public void moveTo(Integer x, Integer y) {
-        command(CONTROL_CODE+"{"+x+"}"+";"+"{"+y+"}"+MOVE);
+        command(CONTROL_CODE + x + ";" + y + MOVE);
     }
 
     /**
@@ -102,6 +102,14 @@ public class Terminal {
      * @param amount Step the cursor this many times.
      */
     public void moveCursor(Direction direction, Integer amount) {
+        switch (direction) {
+            case UP: 
+                command(CONTROL_CODE + amount + "A");
+                break;
+            case DOWN: command(CONTROL_CODE + amount + "B"); break;
+            case FORWARD: command(CONTROL_CODE + amount + "C"); break;
+            case BACKWARD: command(CONTROL_CODE + amount + "D"); break;
+        }
     }
 
     /**
@@ -115,6 +123,9 @@ public class Terminal {
      * position.
      */
     public void setChar(char c) {
+        String s =  Character.toString(c);
+        command(s);
+        moveCursor(Direction.BACKWARD, 1);
     }
 
     /**
@@ -127,14 +138,19 @@ public class Terminal {
      */
     private void command(String commandString) {
         System.out.print(commandString);
-        System.out.flush(); 
+        // System.out.flush(); 
     }
 
     public static void main(String[] arg) {
-         Terminal terminal = new Terminal();
-        //  terminal.clearScreen();
-         terminal.setUnderline();
-         System.out.print("Hello world!");
-
+        Terminal terminal = new Terminal();
+        terminal.clearScreen();
+        terminal.setUnderline();
+        System.out.print("Hello world!");
+        terminal.resetStyle();
+        System.out.print("nincs aláhúzva");
+        // terminal.moveTo(1,1);
+        terminal.moveCursor(Direction.BACKWARD, 3);
+        terminal.setChar('f');
+        System.out.println("");
      }
 }

@@ -144,7 +144,6 @@ public class Terminal {
     }
 
     public static void main(String[] arg) {
-<<<<<<< HEAD
         Terminal terminal = new Terminal();
         terminal.clearScreen();
         terminal.setUnderline();
@@ -155,13 +154,9 @@ public class Terminal {
         terminal.moveCursor(Direction.BACKWARD, 3);
         terminal.setChar('f');
         System.out.println("");
-=======
-         Terminal terminal = new Terminal();
-        //  terminal.clearScreen();
-         terminal.setUnderline();
-         System.out.print("Hello world!");
-         terminal.setBgColor(Color.RED);
-         System.out.print("Hello world!");
->>>>>>> 14081f1738ec0cef77925cc3ee2cf5ce8c0be2cb
+        System.out.print("Hello world!");
+        terminal.setBgColor(Color.RED);
+        System.out.print("Hello world!");
+        System.out.println("");
      }
 }

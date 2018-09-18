@@ -69,6 +69,7 @@ public class Terminal {
      * @param color The color to set.
      */
     public void setColor(Color color) {
+        command(CONTROL_CODE + '3' + color.getName() + STYLE);
     }
 
     /**
@@ -79,6 +80,7 @@ public class Terminal {
      * @param color The background color to set.
      */
     public void setBgColor(Color color) {
+        command(CONTROL_CODE + '4' + color.getName() + STYLE);
     }
 
     /**
@@ -135,6 +137,7 @@ public class Terminal {
         //  terminal.clearScreen();
          terminal.setUnderline();
          System.out.print("Hello world!");
-
+         terminal.setBgColor(Color.RED);
+         System.out.print("Hello world!");
      }
 }

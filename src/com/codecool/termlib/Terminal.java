@@ -69,6 +69,7 @@ public class Terminal {
      * @param color The color to set.
      */
     public void setColor(Color color) {
+        command(CONTROL_CODE + '3' + color.getName() + STYLE);
     }
 
     /**
@@ -79,6 +80,7 @@ public class Terminal {
      * @param color The background color to set.
      */
     public void setBgColor(Color color) {
+        command(CONTROL_CODE + '4' + color.getName() + STYLE);
     }
 
     /**
@@ -142,6 +144,7 @@ public class Terminal {
     }
 
     public static void main(String[] arg) {
+<<<<<<< HEAD
         Terminal terminal = new Terminal();
         terminal.clearScreen();
         terminal.setUnderline();
@@ -152,5 +155,13 @@ public class Terminal {
         terminal.moveCursor(Direction.BACKWARD, 3);
         terminal.setChar('f');
         System.out.println("");
+=======
+         Terminal terminal = new Terminal();
+        //  terminal.clearScreen();
+         terminal.setUnderline();
+         System.out.print("Hello world!");
+         terminal.setBgColor(Color.RED);
+         System.out.print("Hello world!");
+>>>>>>> 14081f1738ec0cef77925cc3ee2cf5ce8c0be2cb
      }
 }

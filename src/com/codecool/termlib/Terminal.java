@@ -44,7 +44,7 @@ public class Terminal {
      * Might reset cursor position.
      */
     public void clearScreen() {
-        moveTo(0, 0);
+        // moveTo(0, 0);
         command(CONTROL_CODE+CLEAR);
     }
 

@@ -142,21 +142,4 @@ public class Terminal {
         System.out.print(commandString);
         // System.out.flush(); 
     }
-
-    public static void main(String[] arg) {
-        Terminal terminal = new Terminal();
-        terminal.clearScreen();
-        terminal.setUnderline();
-        System.out.print("Hello world!");
-        terminal.resetStyle();
-        System.out.print("nincs aláhúzva");
-        // terminal.moveTo(1,1);
-        terminal.moveCursor(Direction.BACKWARD, 3);
-        terminal.setChar('f');
-        System.out.println("");
-        System.out.print("Hello world!");
-        terminal.setBgColor(Color.RED);
-        System.out.print("Hello world!");
-        System.out.println("");
-     }
 }
